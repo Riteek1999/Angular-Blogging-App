@@ -27,6 +27,8 @@ import { UserStartComponent } from './user/user-start/user-start.component';
 import { UserItemComponent } from './user/user-list/user-item/user-item.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     UserListComponent,
     UserItemComponent,
     UserDetailComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    EditorModule
+    EditorModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
