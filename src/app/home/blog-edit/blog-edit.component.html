@@ -1,0 +1,65 @@
+<div class="conatiner list-group-item clearfix">
+  <div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              type="submit"
+              class="btn btn-success space"
+              [disabled]="!blogForm.valid">Save</button>
+            <button type="button" class="btn btn-danger space" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-8">
+            <div class="form-group">
+              <label for="name">Blog Header</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control">
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <label for="cat">View:</label>
+              <select class="form-control" formControlName="view" id="cat">
+                <option>Public</option>
+                <option>Private</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="description">Content</label>
+              <textarea
+                id="widgEditor"
+                type="text"
+                name="description"
+                class="form-control"
+                formControlName="description"
+                rows="10"></textarea>
+                <!-- <editor
+                id = "description"
+                formControlName = "description"
+                apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc"
+                [init]="{
+                icons: 'material',
+                plugins: 'wordcount',
+                menubar: false,
+                min_height: 200
+                }"
+                ></editor> -->
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

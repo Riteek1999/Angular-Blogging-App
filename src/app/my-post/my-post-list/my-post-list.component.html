@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h4>Hello! {{ userEmail }}</h4>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-my-post-item
+    *ngFor="let blog of blogs; let i = index"
+    [blog]="blog"
+    [index]="i"></app-my-post-item>
+  </div>
+</div>
+

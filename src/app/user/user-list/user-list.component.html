@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-12">
+      <h4>Hey Stalker! This is {{ blogWritter }}</h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-blog-item
+      *ngFor="let blog of blogs; let i = index"
+      [blog]="blog"
+      [index]="i"></app-blog-item>
+    </div>
+  </div>
+  
+  

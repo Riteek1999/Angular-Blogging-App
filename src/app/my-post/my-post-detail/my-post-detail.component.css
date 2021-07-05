@@ -1,0 +1,21 @@
+.desc {
+    height: 300px;
+    overflow-y: scroll;
+}
+.space {
+    margin-right: 5px;
+}
+.comment-title {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.comment {
+    margin: 10px;
+    background-color: #CCF3FF;
+    min-height: 70px;
+    overflow-y: scroll;
+    padding: 5px;
+}
+.edit-div {
+    margin-bottom: 5px;
+}
