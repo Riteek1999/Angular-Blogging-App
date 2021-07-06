@@ -1,0 +1,20 @@
+footer{
+    margin-top: 5%;
+}
+.footer-bottom{
+    color: white;
+    background: #343A40;
+    /* width: 100vw; */
+    padding: 5px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}

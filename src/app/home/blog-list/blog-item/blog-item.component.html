@@ -1,18 +1,14 @@
-<a
-[@bloglist]
-style="cursor: pointer;"
-[routerLink]="[index]"
-routerLinkActive="active"
-class="list-group-item clearfix">
-<div class="pull-left">
-  <div class="row">
-    <div class="col-xs-8">
-      <h4 class="list-group-item-heading">{{ blog.name }}</h4>
-    </div>
-    <div class="col-xs-4">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" [src]="blog.image" alt="{{ blog.name }}">
+  <div class="card-body">
+    <div class="d-inline">
+      <h5 class="card-title">{{ blog.name }}</h5>
       <p>{{ blog.writter }} | {{ blog.time.toString().split('T')[0] }}</p>
     </div>
+    <p class="card-text">{{ blog.description | shorten:100 }}</p>
+    <a [@bloglist]
+    [routerLink]="[index]"
+    routerLinkActive="active" 
+    class="btn btn-primary">Read more</a>
   </div>
-  <p class="list-group-item-text">{{ blog.description | shorten:150 }}</p>
 </div>
-</a>

@@ -1,4 +1,4 @@
-<div class="conatiner list-group-item clearfix">
+<div class="conatiner">
   <div class="row">
     <div class="col-xs-12">
       <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
@@ -44,18 +44,25 @@
                 class="form-control"
                 formControlName="description"
                 rows="10"></textarea>
-                <!-- <editor
-                id = "description"
-                formControlName = "description"
-                apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc"
-                [init]="{
-                icons: 'material',
-                plugins: 'wordcount',
-                menubar: false,
-                min_height: 200
-                }"
-                ></editor> -->
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="imagePath">Image URL</label>
+              <input
+                type="text"
+                id="imagePath"
+                formControlName="imagePath"
+                class="form-control"
+                #imagePath>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="imagePath.value!=''">
+          <div class="col-xs-12">
+            <img [src]="imagePath.value" style="height: 200px; width: 300px;" class="img-responsive">
           </div>
         </div>
       </form>

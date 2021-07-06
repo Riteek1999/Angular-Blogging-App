@@ -52,7 +52,8 @@ export class MyPostEditComponent implements OnInit {
       blog.like,
       blog.dislike,
       blog.comment,
-      blog.view);
+      blog.view,
+      blog.image);
 
     this.blogService.updateBlog(this.id, updatedBlog);
     this.dataStorageService.storeBlogs();

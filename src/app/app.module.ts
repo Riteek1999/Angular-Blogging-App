@@ -29,6 +29,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     UserListComponent,
     UserItemComponent,
     UserDetailComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

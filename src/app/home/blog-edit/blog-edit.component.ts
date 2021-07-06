@@ -45,6 +45,7 @@ export class BlogEditComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.blogForm.value)
     const commentArray: CommentModel[] = [new CommentModel(this.userEmail.substring(0, this.userEmail.indexOf("@")),"Give it a Read")]
     const newBlog = new Blog(
       this.length,
@@ -55,7 +56,8 @@ export class BlogEditComponent implements OnInit {
       0,
       0,
       commentArray,
-      this.blogForm.value['view']);
+      this.blogForm.value['view'],
+      this.blogForm.value['imagePath']);
     this.blogService.addBlog(newBlog);
     this.dataStorageService.storeBlogs();
     this.onCancel();
@@ -89,6 +91,7 @@ export class BlogEditComponent implements OnInit {
     let blogName = '';
     let blogDescription = '';
     let blogView = '';
+    let blogImagePath = '';
 
     // if (this.editMode) {
     //   const recipe = this.blogService.getBlog(this.id);
@@ -113,7 +116,8 @@ export class BlogEditComponent implements OnInit {
     this.blogForm = new FormGroup({
       name: new FormControl(blogName, Validators.required),
       description: new FormControl(blogDescription, Validators.required),
-      view: new FormControl(blogView, Validators.required)
+      view: new FormControl(blogView, Validators.required),
+      imagePath: new FormControl(blogImagePath, Validators.required)
     });
   }
 
