@@ -10,7 +10,7 @@ import { BlogService } from '../blog.service';
   templateUrl: './blog-list.component.html',
   styleUrls: ['./blog-list.component.css']
 })
-export class BlogListComponent implements OnInit, OnDestroy, OnChanges {
+export class BlogListComponent implements OnInit, OnDestroy {
   blogs: Blog[]
   renderedBlog: Blog[]
   subscription: Subscription
@@ -36,10 +36,10 @@ export class BlogListComponent implements OnInit, OnDestroy, OnChanges {
     this.renderedBlog = this.blogs
   }
 
-  ngOnChanges() {
-    this.blogs = this.blogService.getPublicBlogs()
-    this.renderedBlog = this.blogs
-  }
+  // ngOnChanges() {
+  //   this.blogs = this.blogService.getPublicBlogs()
+  //   this.renderedBlog = this.blogs
+  // }
 
   onNewBlog() {
     this.router.navigate(['new'], {relativeTo: this.route});
@@ -49,9 +49,9 @@ export class BlogListComponent implements OnInit, OnDestroy, OnChanges {
     this.subscription.unsubscribe();
   }
 
-  passtoDateConversion(date: Date) {
-    this.blogService.dateConversion(date)
-  }
+  // passtoDateConversion(date: Date) {
+  //   this.blogService.dateConversion(date)
+  // }
 
   onSearch() {
     this.blogs = this.renderedBlog.filter(blog => {
