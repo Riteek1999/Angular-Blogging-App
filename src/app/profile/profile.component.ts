@@ -38,4 +38,8 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
+
+  userProfile() {
+    this.router.navigate(['/my-posts']);
+  }
 }

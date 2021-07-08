@@ -1,16 +1,27 @@
 <div class="row">
-    <div class="col-xs-12">
-      <h4>Hey Stalker! This is {{ blogWritter }}</h4>
-    </div>
+  <div class="col-xs-12">
+    <h4>Hey Stalker! This is {{ blogWritter }}</h4>
   </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <app-blog-item
-      *ngFor="let blog of blogs; let i = index"
-      [blog]="blog"
-      [index]="i"></app-blog-item>
-    </div>
-  </div>
-  
-  
+</div>
+<hr>
+<div class="blogdisplay">
+  <owl-carousel-o [options]="customOptions" class="blogitems">  
+    <ng-template carouselSlide *ngFor="let blog of blogs; let i = index">
+      <div class="card" style="width: 20rem; height: 31rem;">
+        <img class="card-img-top" style="height: 14rem;" [src]="blog.image" alt="{{ blog.name }}">
+        <div class="card-body">
+          <div class="d-inline">
+            <h5 class="card-title">{{ blog.name }}</h5>
+            <p>{{ blog.writter }} | {{ blog.time.toString().split('T')[0] }}</p>
+          </div>
+          <p class="card-text">{{ blog.description | shorten:100 }}</p>
+          <a
+          [routerLink]="[i]"
+          routerLinkActive="active" 
+          class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+

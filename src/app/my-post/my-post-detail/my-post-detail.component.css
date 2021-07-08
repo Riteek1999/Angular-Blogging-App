@@ -1,20 +1,25 @@
-.desc {
-    height: 300px;
-    overflow-y: scroll;
-}
 .space {
     margin-right: 5px;
 }
-.comment-title {
-    margin-top: 10px;
-    font-weight: bold;
-}
 .comment {
-    margin: 10px;
-    background-color: #CCF3FF;
-    height: 70px;
+    background-color: #1ABC9C;
+    height: 100px;
     overflow-y: scroll;
-    padding: 5px;
+    padding: 2%;
+    color: #FFFFFF;
+}
+.blogheader {
+    font-size: 5rem;
+    line-height: 2;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+.header {
+  padding: 3%;
+  text-align: left;
+  background: #1abc9c;
+  color: white;
+  font-size: 2rem;
 }
 .edit-div {
     margin-bottom: 5px;

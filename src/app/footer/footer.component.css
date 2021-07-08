@@ -1,5 +1,7 @@
 footer{
     margin-top: 5%;
+    position: sticky;
+    top: 100%;
 }
 .footer-bottom{
     color: white;

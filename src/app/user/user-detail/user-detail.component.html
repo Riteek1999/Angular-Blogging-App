@@ -1,56 +1,55 @@
-<div class="conatiner list-group-item clearfix">
-    <div class="row">
-      <div class="col-xs-10">
-        <h1>{{ blog.name }}</h1>
-      </div>
-      <div class="col-xs-2">
-        <p>{{ blog.view }}</p>
-      </div>
+<div class="conatiner">
+  <div class="header">
+  <div class="row">
+    <div class="col-md-12">  
+      <h1>{{ blog.name }}</h1>
     </div>
-    <div class="row desc">
-      <div class="col-xs-12">
-        {{ blog.description }}
-      </div>
+  </div>
+  <div class="row" style="font-size: 1rem;">
+    <div class="col-md-5">
+      <p><img src="../../../assets/avatar.png">&nbsp;&nbsp;&nbsp; By <b>{{ blog.writter }}</b> &nbsp;&nbsp;&nbsp;<i>{{ blog.time.toString().split('T')[0] }}</i></p>
     </div>
-    <div class="row">
-      <div class="col-xs-8">
-        <h4><i>Writter</i> - {{ blog.writter }}</h4>
-      </div>
-      <div class="col-xs-4">
-        <i>Published on</i><br>- {{ blog.time.toString().split('T')[0] }}
-      </div>
+  </div>
+  </div>
+  <div class="row p-4 text-center blogimage">
+    <div class="col-md-12">
+      <img class="img-fluid rounded" src="{{blog.image}}">
     </div>
-    <div class="row">
-      <div class="col-xs-4">
-        <button class="btn btn-success space" (click)="onLike()" [disabled]="!isAuthenticated"><i class="fa fa-thumbs-up"></i></button>{{blog.like}}
-      </div>
-      <div class="col-xs-4">
-        <button class="btn btn-danger space" (click)="onDisLike()" [disabled]="!isAuthenticated"><i class="fa fa-thumbs-down"></i></button>{{blog.dislike}}
-      </div>
-      <div class="col-xs-4 ml-2 comment-title">
-        <p>Comment Below</p>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-xs-8">
-        <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="comment"
-      />
-      </div>
-      <div class="col-xs-4">
-        <button class="btn btn-primary" [disabled]="!isAuthenticated" (click)="onComment()">Comment</button>
-      </div>
+  <div class="row justify-content-center p-4" style="font-size: 1.2rem;">
+    <div class="col-md-11 col-xs-11">
+      <p>{{ blog.description }}</p>
     </div>
-    <div *ngIf="blog.comment.length != 0" class="row list-group-item clearfix comment">
-      <div *ngFor="let c of blog.comment;" class="col-xs-12">
-          <p>
-            <b>{{c.name}}</b>:  {{c.comment}}
-          </p>
+  </div>
+
+  <div class="row p-4 justify-content-end">
+    <div class="col-xs-3 col-md-1">
+      <button class="btn btn-success space" (click)="onLike()" [disabled]="!isAuthenticated"><i class="fa fa-thumbs-up"></i></button>{{blog.like}}
+    </div>
+    <div class="col-xs-3 col-md-1">
+      <button class="btn btn-danger space" (click)="onDisLike()" [disabled]="!isAuthenticated"><i class="fa fa-thumbs-down"></i></button>{{blog.dislike}}
+    </div>
+    <div class="col-xs-4 col-md-4">
+      <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="comment"
+    />
+    </div>
+    <div class="col-xs-2 col-md-2">
+      <button class="btn btn-primary" [disabled]="!isAuthenticated" (click)="onComment()">Comment</button>
+    </div>
+  </div>
+  <div class="row p-4 justify-content-end mr-md-2">
+    <div class="col-md-8">
+      <div class="row list-group-item clearfix comment">
+        <div *ngFor="let c of blog.comment | reverse;" class="col-xs-12">
+            <p>
+              <b>{{c.name}}</b>:  {{c.comment}}
+            </p>
+        </div>
       </div>
     </div>
   </div>
-  
-  
-  
+</div>
+

@@ -15,7 +15,7 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
 })
 export class MyPostEditComponent implements OnInit {
   id: number
-  editMode = false
+  editMode = false;
   blogForm: FormGroup
   userSub: Subscription
   userEmail: string
@@ -39,6 +39,7 @@ export class MyPostEditComponent implements OnInit {
       this.userEmail = user.email
     })
     this.length = this.blogService.getBlogsSize();
+    console.log(this.id)
   }
 
   onSubmit() {
@@ -52,8 +53,8 @@ export class MyPostEditComponent implements OnInit {
       blog.like,
       blog.dislike,
       blog.comment,
-      blog.view,
-      blog.image);
+      this.blogForm.value['view'],
+      this.blogForm.value['imagePath']);
 
     this.blogService.updateBlog(this.id, updatedBlog);
     this.dataStorageService.storeBlogs();
@@ -67,16 +68,22 @@ export class MyPostEditComponent implements OnInit {
   private initForm() {
     let blogName = '';
     let blogDescription = '';
+    let blogView = '';
+    let blogImagePath = '';
 
     if (this.editMode) {
       const blog = this.blogService.getfilteredBlog(this.id);
       blogName = blog.name;
       blogDescription = blog.description;
+      blogView = blog.view;
+      blogImagePath = blog.image;
     }
 
     this.blogForm = new FormGroup({
       name: new FormControl(blogName, Validators.required),
-      description: new FormControl(blogDescription, Validators.required)
+      description: new FormControl(blogDescription, Validators.required),
+      view: new FormControl(blogView, Validators.required),
+      imagePath: new FormControl(blogImagePath, Validators.required)
     });
   }
 }

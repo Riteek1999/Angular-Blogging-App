@@ -1,9 +1,9 @@
-<div class="conatiner">
+<div class="container next-section">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-md-12">
             <button
               type="submit"
               class="btn btn-success space"
@@ -13,9 +13,9 @@
         </div>
         <hr>
         <div class="row">
-          <div class="col-xs-8">
+          <div class="col-md-8">
             <div class="form-group">
-              <label for="name">Blog Header</label>
+              <label for="name">Title</label>
               <input
                 type="text"
                 id="name"
@@ -23,9 +23,9 @@
                 class="form-control">
             </div>
           </div>
-          <div class="col-xs-4">
+          <div class="col-md-4">
             <div class="form-group">
-              <label for="cat">View:</label>
+              <label for="cat">View</label>
               <select class="form-control" formControlName="view" id="cat">
                 <option>Public</option>
                 <option>Private</option>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-md-12">
             <div class="form-group">
               <label for="description">Content</label>
               <textarea
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-md-12">
             <div class="form-group">
               <label for="imagePath">Image URL</label>
               <input
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="row" *ngIf="imagePath.value!=''">
-          <div class="col-xs-12">
+          <div class="col-md-12">
             <img [src]="imagePath.value" style="height: 200px; width: 300px;" class="img-responsive">
           </div>
         </div>

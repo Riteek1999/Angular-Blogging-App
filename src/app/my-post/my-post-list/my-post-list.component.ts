@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Blog } from 'src/app/home/blog.model';
 import { BlogService } from 'src/app/home/blog.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 
 @Component({
@@ -38,6 +38,31 @@ export class MyPostListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-left" aria-hidden="true"></i>', '<i class="fa fa-caret-right" aria-hidden="true"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 2
+      },
+      940: {
+        items: 3
+      }
+    },
+    nav: true
   }
 
 }

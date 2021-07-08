@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { Blog } from '../blog.model';
 import { BlogService } from '../blog.service';
@@ -91,5 +92,30 @@ export class BlogListComponent implements OnInit, OnDestroy {
     if(this.filter == "Remove Filter") {
       this.filter = ''
     }
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-left" aria-hidden="true"></i>', '<i class="fa fa-caret-right" aria-hidden="true"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 2
+      },
+      940: {
+        items: 3
+      }
+    },
+    nav: true
   }
 }

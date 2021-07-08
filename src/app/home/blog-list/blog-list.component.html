@@ -1,8 +1,5 @@
-<div class="row">
-  <div class="col-md-2 col-xs-3">
-    <button class="btn btn-success" (click)="onNewBlog()" *ngIf="isAuthenticated">Create Blog</button>
-  </div>
-  <div class="col-md-4 col-xs-6">
+<div class="row justify-content-md-center">
+  <div class="col-xs-10 col-md-5 ">
     <input
     type="text"
     class="form-control"
@@ -10,12 +7,12 @@
     placeholder="Search"
   />
   </div>
-  <div class="col-md-1 col-xs-3">
+  <div class="col-xs-2 col-md-1">
     <button class="btn btn-primary" (click) = "onSearch()"><i class="fa fa-search"></i> Search</button>
   </div>
 </div>
-<div class="row" style="margin-top: 8px;">
-  <div class="col-md-6 col-xs-9">
+<div class="row justify-content-md-center" style="margin-top: 8px;">
+  <div class="col-xs-10 col-md-5">
     <div class="form-group">
       <select class="form-control" id="filter" [(ngModel)]="filter">
         <option hidden disabled selected value> -- select an option -- </option>
@@ -25,7 +22,7 @@
       </select>
     </div>
   </div>
-  <div class="col-md-1 col-xs-3">
+  <div class="col-xs-2 col-md-1 ">
     <button class="btn btn-info" (click)="onFilter()"><i class="fa fa-filter"></i> Filter</button>
   </div>
 </div>
@@ -37,24 +34,32 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div *ngFor="let blog of blogs; let i = index" class="col-md-4 col-xs-12">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" style="height: 14rem;" [src]="blog.image" alt="{{ blog.name }}">
-              <div class="card-body">
-                <div class="d-inline">
-                  <h5 class="card-title">{{ blog.name }}</h5>
-                  <p>{{ blog.writter }} | {{ blog.time.toString().split('T')[0] }}</p>
-                </div>
-                <p class="card-text">{{ blog.description | shorten:100 }}</p>
-                <a
-                [routerLink]="[index]"
-                routerLinkActive="active" 
-                class="btn btn-primary">Read more</a>
+
+<div class="blogdisplay">
+  <owl-carousel-o [options]="customOptions" class="blogitems">  
+        <ng-template carouselSlide *ngFor="let blog of blogs; let i = index">
+          <div class="card" style="width: 20rem; height: 31rem;">
+            <img class="card-img-top" style="height: 14rem;" [src]="blog.image" alt="{{ blog.name }}">
+            <div class="card-body">
+              <div class="d-inline">
+                <h5 class="card-title">{{ blog.name }}</h5>
+                <p>{{ blog.writter }} | {{ blog.time.toString().split('T')[0] }}</p>
               </div>
+              <p class="card-text">{{ blog.description | shorten:100 }}</p>
+              <a
+              [routerLink]="[i]"
+              routerLinkActive="active" 
+              class="btn btn-primary">Read more</a>
             </div>
+          </div>
+        </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="row next-section" *ngIf="isAuthenticated">
+  <div class="col-md-6">
+    <h2 style="color: #343A40">Create Blog :</h2>
+    <button class="btn btn-success" (click)="onNewBlog()">Create</button>
   </div>
 </div>
 
-
-
+<router-outlet></router-outlet>
