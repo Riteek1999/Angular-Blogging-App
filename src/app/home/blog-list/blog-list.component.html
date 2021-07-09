@@ -27,7 +27,72 @@
   </div>
 </div>
 <hr>
-<div class="row">
+
+  <div class="row tile first-div" styyle="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3));">
+      <div class="col-md-8 col-lg-6">
+        <div class="col-md-12">
+          <div class="card card-inverse h-100 mb-3">
+            <img src="{{blogs[3].image}}" class="img-fluid" alt="Responsive image">
+            <div class="image__overlay image__overlay--primary">
+                <div class="image__title">{{blogs[3].name}}</div>
+                <p class="image__description">
+                  {{ blogs[3].writter }} | {{ blogs[3].time.toString().split('T')[0] }}
+                </p>
+            </div> 
+          </div>
+        </div>
+          <div class="col-md-12">
+            <div class="card card-inverse h-100">
+              <img src="{{blogs[4].image}}" class="img-fluid" alt="Responsive image">
+              <div class="image__overlay image__overlay--primary">
+                <div class="image__title">{{blogs[4].name}}</div>
+                <p class="image__description">
+                  {{ blogs[4].writter }} | {{ blogs[4].time.toString().split('T')[0] }}
+                </p>
+              </div> 
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-6">
+        <div class="row h-100">
+            <div class="col-md-6 col-lg-6 mb-3 gradient">
+                <div class="card card-inverse h-100">
+                  <img src="{{blogs[0].image}}" class="img-fluid" alt="Responsive image">
+                  <div class="image__overlay image__overlay--primary">
+                    <div class="image__title">{{blogs[0].name}}</div>
+                    <p class="image__description">
+                      {{ blogs[0].writter }} | {{ blogs[0].time.toString().split('T')[0] }}
+                    </p>
+                  </div> 
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card card-inverse h-100">
+                  <img src="{{blogs[1].image}}" class="img-fluid" alt="Responsive image">
+                  <div class="image__overlay image__overlay--primary">
+                    <div class="image__title">{{blogs[1].name}}</div>
+                    <p class="image__description">
+                      {{ blogs[1].writter }} | {{ blogs[1].time.toString().split('T')[0] }}
+                    </p>
+                  </div> 
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card card-inverse h-100">
+                  <img src="{{blogs[2].image}}" class="img-fluid" alt="Responsive image">
+                  <div class="image__overlay image__overlay--primary">
+                    <div class="image__title">{{blogs[2].name}}</div>
+                    <p class="image__description">
+                      {{ blogs[2].writter }} | {{ blogs[2].time.toString().split('T')[0] }}
+                    </p>
+                  </div> 
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+
+<div class="row" style="margin-top: 5%;">
   <div class="col-md-12 col-xs-12">
     <div class="alert alert-warning" *ngIf="error != ''">
       <p>{{ error }}</p>
@@ -63,3 +128,6 @@
 </div>
 
 <router-outlet></router-outlet>
+
+
+
