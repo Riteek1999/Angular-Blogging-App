@@ -31,6 +31,8 @@
   <div class="row tile first-div" styyle="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3));">
       <div class="col-md-8 col-lg-6">
         <div class="col-md-12">
+        <a
+        [routerLink]="[3]">
           <div class="card card-inverse h-100 mb-3">
             <img src="{{blogs[3].image}}" class="img-fluid" alt="Responsive image">
             <div class="image__overlay image__overlay--primary">
@@ -40,8 +42,11 @@
                 </p>
             </div> 
           </div>
+        </a>
         </div>
           <div class="col-md-12">
+            <a
+            [routerLink]="[4]">
             <div class="card card-inverse h-100">
               <img src="{{blogs[4].image}}" class="img-fluid" alt="Responsive image">
               <div class="image__overlay image__overlay--primary">
@@ -51,11 +56,14 @@
                 </p>
               </div> 
             </div>
-        </div>
+            </a>
+          </div>
       </div>
       <div class="col-md-4 col-lg-6">
         <div class="row h-100">
             <div class="col-md-6 col-lg-6 mb-3 gradient">
+              <a
+              [routerLink]="[0]">
                 <div class="card card-inverse h-100">
                   <img src="{{blogs[0].image}}" class="img-fluid" alt="Responsive image">
                   <div class="image__overlay image__overlay--primary">
@@ -65,8 +73,11 @@
                     </p>
                   </div> 
                 </div>
+              </a>
             </div>
             <div class="col-md-6 col-lg-6 mb-3">
+              <a
+              [routerLink]="[1]">
                 <div class="card card-inverse h-100">
                   <img src="{{blogs[1].image}}" class="img-fluid" alt="Responsive image">
                   <div class="image__overlay image__overlay--primary">
@@ -76,8 +87,11 @@
                     </p>
                   </div> 
                 </div>
+              </a>
             </div>
             <div class="col-md-12">
+              <a
+              [routerLink]="[2]">
                 <div class="card card-inverse h-100">
                   <img src="{{blogs[2].image}}" class="img-fluid" alt="Responsive image">
                   <div class="image__overlay image__overlay--primary">
@@ -87,6 +101,7 @@
                     </p>
                   </div> 
                 </div>
+              </a>
             </div>
         </div>
       </div>
