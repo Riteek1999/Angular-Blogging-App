@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { Blog } from './blog.model';
-import { CommentModel } from './comment.model';
 // import { Ingredient } from '../shared/ingredient.model';
 // import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable({providedIn: 'root'})
 export class BlogService {
   blogsChanged = new Subject<Blog[]>();
+  show = new Subject<boolean>();
 
   // private blogs: Blog[] = [
   //   new Blog(
@@ -29,6 +29,8 @@ export class BlogService {
   private filteredBlogs: Blog[] = []
   private writterBlogs: Blog[] = []
   private publicBlogs: Blog[] = []
+  private showSearchs: boolean = false
+  private showFilter: boolean = false
 
   constructor() {}
 
@@ -106,5 +108,24 @@ export class BlogService {
 
   dateConversion(date: Date) {
     return date.toISOString().split('T')[0].toString()
+  }
+
+  displaySearch() {
+    this.showSearchs = !this.showSearchs
+    this.show.next(this.showSearchs)
+  }
+
+  getSearch() {
+    console.log(this.showSearchs)
+    return this.showSearchs
+  }
+
+  getFilter() {
+    return this.showFilter
+  }
+
+  displayFilter() {
+    this.showFilter = !this.showFilter
+    this.show.next(this.showFilter)
   }
 }

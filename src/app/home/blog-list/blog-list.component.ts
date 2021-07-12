@@ -5,6 +5,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { Blog } from '../blog.model';
 import { BlogService } from '../blog.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-blog-list',
@@ -19,6 +20,9 @@ export class BlogListComponent implements OnInit, OnDestroy {
   searchItem: string = ''
   error: string = ''
   filter: string = ''
+  showSearch: boolean
+  show: Subscription
+  showFilter: boolean
 
   constructor(private blogService: BlogService,
               private router: Router,
@@ -35,6 +39,14 @@ export class BlogListComponent implements OnInit, OnDestroy {
       );
     this.blogs = this.blogService.getPublicBlogs()
     this.renderedBlog = this.blogs
+    this.show = this.blogService.show
+      .subscribe(
+        (r: boolean) => {
+          this.showSearch = this.blogService.getSearch()
+          this.showFilter = this.blogService.getFilter()
+        }
+      )
+    this.showSearch = this.blogService.getSearch()
   }
 
   // ngOnChanges() {
@@ -48,6 +60,7 @@ export class BlogListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.show.unsubscribe()
   }
 
   // passtoDateConversion(date: Date) {

@@ -4,8 +4,8 @@ footer{
     top: 100%;
 }
 .footer-bottom{
-    color: white;
-    background: #343A40;
+    color: #212222;
+    background: #F8F9FA;
     /* width: 100vw; */
     padding: 5px 0;
     text-align: center;
@@ -17,6 +17,6 @@ footer{
 }
 .footer-bottom span{
     text-transform: uppercase;
-    opacity: .4;
+    opacity: .8;
     font-weight: 200;
 }

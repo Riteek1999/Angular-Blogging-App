@@ -1,32 +1,39 @@
-<div class="row justify-content-md-center">
-  <div class="col-xs-10 col-md-5 ">
-    <input
-    type="text"
-    class="form-control"
-    [(ngModel)]="searchItem"
-    placeholder="Search"
-  />
-  </div>
-  <div class="col-xs-2 col-md-1">
-    <button class="btn btn-primary" (click) = "onSearch()"><i class="fa fa-search"></i> Search</button>
-  </div>
-</div>
-<div class="row justify-content-md-center" style="margin-top: 8px;">
-  <div class="col-xs-10 col-md-5">
-    <div class="form-group">
-      <select class="form-control" id="filter" [(ngModel)]="filter">
-        <option hidden disabled selected value> -- select an option -- </option>
-        <option>Featured</option>
-        <option>Latest</option>
-        <option>Remove Filter</option>
-      </select>
+<div class="search" *ngIf="showSearch">
+  <div class="row justify-content-md-center">
+    <div class="col-xs-10 col-md-5 ">
+      <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="searchItem"
+      placeholder="Search"
+    />
+    </div>
+    <div class="col-xs-2 col-md-1">
+      <button class="btn btn-primary" (click) = "onSearch()"><i class="fa fa-search"></i> Search</button>
     </div>
   </div>
-  <div class="col-xs-2 col-md-1 ">
-    <button class="btn btn-info" (click)="onFilter()"><i class="fa fa-filter"></i> Filter</button>
-  </div>
-</div>
 <hr>
+</div>
+
+<div class="filter" *ngIf="showFilter">
+  <div class="row justify-content-md-center" style="margin-top: 8px;">
+    <div class="col-xs-10 col-md-5">
+      <div class="form-group">
+        <select class="form-control" id="filter" [(ngModel)]="filter">
+          <option hidden disabled selected value> -- select an option -- </option>
+          <option>Featured</option>
+          <option>Latest</option>
+          <option>Remove Filter</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-xs-2 col-md-1 ">
+      <button class="btn btn-info" (click)="onFilter()"><i class="fa fa-filter"></i> Filter</button>
+    </div>
+  </div>
+  <hr>
+</div>
+
 
   <div class="row tile first-div" styyle="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3));">
       <div class="col-md-8 col-lg-6">

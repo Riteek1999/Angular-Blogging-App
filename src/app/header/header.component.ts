@@ -1,12 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { AuthService } from '../auth/auth.service';
+import { BlogService } from '../home/blog.service';
 import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
@@ -15,7 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
     private dataStorageService: DataStorageService,
-    private authService: AuthService
+    private authService: AuthService,
+    private blogservice: BlogService
   ) {}
 
   ngOnInit() {
@@ -41,5 +44,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.userSub.unsubscribe();
+  }
+
+  onClickSearch() {
+    console.log("onClickSearch")
+    this.blogservice.displaySearch()
+  }
+
+  onClickFilter() {
+    console.log("onClickFilter")
+    this.blogservice.displayFilter()
   }
 }
