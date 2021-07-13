@@ -29,8 +29,8 @@
           <li class="nav-item item" style="margin-right: 10%;">
             <a class="nav-link" routerLink="/home">Home</a>
           </li>
-          <li class="nav-item item" *ngIf="!isAuthenticated" style="margin-right: 10%;">
-            <a class="nav-link" routerLink="/auth">Authenticate</a>
+          <li class="nav-item" *ngIf="!isAuthenticated" style="margin-right: 10%;">
+            <a class="nav-link" (click)="openModal()" style="cursor: pointer;"><i class="fa fa-user"></i></a>
           </li>
           <li class="nav-item item" *ngIf="isAuthenticated" style="margin-right: 10%;">
             <a class="nav-link" routerLink="/my-posts">Posts</a>
@@ -59,10 +59,8 @@
 <div class="wrapper1">
   <nav class="navbar navbar-light navbar-expand-lg mb-4 bg-light">
     <div class="d-inline">
-      <a class="navbar-brand" routerLink="/home">
         <img src="../../assets/science_logo.png" style="height: 70%; width: 70%;">
-      </a>
-      <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" (click)="isShown=!isShown">
+      <button class="navbar-toggler navbar-right tbutton" type="button" data-toggle="collapse" (click)="isShown=!isShown">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
@@ -72,7 +70,7 @@
             <a class="nav-link" routerLink="/home">Home</a>
           </li>
           <li class="nav-item item" *ngIf="!isAuthenticated" style="margin-right: 10%;">
-            <a class="nav-link" routerLink="/auth">Authenticate</a>
+            <a class="nav-link" (click)="openModal()" style="cursor: pointer;">Authenticate</a>
           </li>
           <li class="nav-item item" *ngIf="isAuthenticated" style="margin-right: 10%;">
             <a class="nav-link" routerLink="/my-posts">Posts</a>
@@ -82,12 +80,12 @@
           </li>
       </ul>
       <ul class="nav navbar-nav navbar-right mr-5 align-items-center">
-        <!-- <li class="nav-item">
-          <a class="nav-link" style="cursor: pointer;"><i class="fa fa-search"></i></a>
+        <li class="nav-item item">
+          <a class="nav-link" (click)="onClickSearch()" style="cursor: pointer;"><i class="fa fa-search"></i> Search</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" style="cursor: pointer;"><i class="fa fa-filter"></i></a>
-        </li> -->
+        <li class="nav-item item">
+          <a class="nav-link" (click)="onClickFilter()" style="cursor: pointer;"><i class="fa fa-filter"></i> Filter</a>
+        </li>
         <li class="nav-item item ml-1" *ngIf="isAuthenticated">
           <a class="nav-link" (click)="onLogout()" style="cursor: pointer;">Logout</a>
         </li>
@@ -96,7 +94,60 @@
   </nav>
 </div>
 
-
-
-
-
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Login/SignUp</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" *ngIf="error">
+          <p>{{ error }}</p>
+        </div>
+        <div *ngIf="isLoading" style="text-align: center;">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              ngModel
+              name="email"
+              required
+              email
+            />
+          </div>
+          <div class="form-group pb-4">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              ngModel
+              name="password"
+              required
+              minlength="6"
+            />
+          </div>
+          <hr width="100%">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!authForm.valid"
+          >
+            {{ isLoginMode ? 'Login' : 'Sign Up' }}
+          </button>
+          |
+          <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
+            Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

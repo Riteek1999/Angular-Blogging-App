@@ -14,7 +14,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserComponent } from './user/user.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
     component: HomeComponent,

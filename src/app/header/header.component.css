@@ -9,8 +9,14 @@
 .wrapper1{
     display: none;
 }
+.modal { 
+    background: rgba(0,0,0, .5);
+}
+.tbutton{
+    margin-left: 12%;
+}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .wrapper{
         display: none;
     }

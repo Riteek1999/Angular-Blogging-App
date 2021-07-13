@@ -21,6 +21,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy{
   comment: string = ''
   userEmail: string
   blogWritter: string
+  showComment: boolean = false
 
   constructor(private blogService: BlogService,
               private route: ActivatedRoute,
@@ -69,5 +70,9 @@ export class BlogDetailComponent implements OnInit, OnDestroy{
     this.blog.comment = [...this.blog.comment, postComment]
     this.dataStorageService.storeBlogs()
     this.comment = ''
+  }
+
+  openComment() {
+    this.showComment = !this.showComment
   }
 }
